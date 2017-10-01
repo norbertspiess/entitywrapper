@@ -1,4 +1,6 @@
-package de.norbertspiess.spring.boot.entitywrapper.entity;
+package de.norbertspiess.spring.boot.data;
+
+import de.norbertspiess.spring.boot.data.enumeration.Locale;
 
 import javax.persistence.*;
 import java.util.HashMap;

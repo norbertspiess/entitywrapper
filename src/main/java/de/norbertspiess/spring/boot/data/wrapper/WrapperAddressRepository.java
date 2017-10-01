@@ -1,10 +1,9 @@
-package de.norbertspiess.spring.boot.entitywrapper.repo;
+package de.norbertspiess.spring.boot.data.wrapper;
 
-import de.norbertspiess.spring.boot.entitywrapper.entity.Address;
-import de.norbertspiess.spring.boot.entitywrapper.entity.wrapper.AddressWrapper;
+import de.norbertspiess.spring.boot.data.Address;
 import org.springframework.data.repository.Repository;
 
-public interface AddressRepository extends Repository<Address, Long> {
+public interface WrapperAddressRepository extends Repository<Address, Long> {
     AddressWrapper<Address> findOne(Long id);
 
     // somewhat ugly that you have to put the entity into the save method, but that's how it is...

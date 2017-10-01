@@ -1,7 +1,6 @@
-package de.norbertspiess.spring.boot.entitywrapper.repo;
+package de.norbertspiess.spring.boot.data.wrapper;
 
-import de.norbertspiess.spring.boot.entitywrapper.entity.Address;
-import de.norbertspiess.spring.boot.entitywrapper.entity.wrapper.AddressWrapper;
+import de.norbertspiess.spring.boot.data.Address;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +12,10 @@ import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class AddressRepositoryTest {
+public class WrapperAddressRepositoryTest {
 
     @Autowired
-    private AddressRepository repository;
+    private WrapperAddressRepository repository;
 
     @Test
     public void findOne() throws Exception {

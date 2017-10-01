@@ -1,6 +1,6 @@
-package de.norbertspiess.spring.boot.entitywrapper.entity.wrapper;
+package de.norbertspiess.spring.boot.data.wrapper;
 
-import de.norbertspiess.spring.boot.entitywrapper.entity.Address;
+import de.norbertspiess.spring.boot.data.Address;
 
 public class AddressWrapper<T extends Address> {
     private T entity;

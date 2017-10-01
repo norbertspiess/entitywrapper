@@ -1,4 +1,4 @@
-package de.norbertspiess.spring.boot.entitywrapper.entity;
+package de.norbertspiess.spring.boot.data.enumeration;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 

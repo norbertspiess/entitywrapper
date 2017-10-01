@@ -1,4 +1,4 @@
-package de.norbertspiess.spring.boot.entitywrapper;
+package de.norbertspiess.spring.boot.data;
 
 import org.h2.server.web.WebServlet;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;

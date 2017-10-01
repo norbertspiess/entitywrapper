@@ -1,10 +1,10 @@
-package de.norbertspiess.spring.boot.entitywrapper.entity;
+package de.norbertspiess.spring.boot.data.enumeration;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
 @Converter(autoApply = true)
-public class ColorConverter implements AttributeConverter<Locale, String> {
+public class LocaleConverter implements AttributeConverter<Locale, String> {
 
     @Override
     public String convertToDatabaseColumn(Locale locale) {
