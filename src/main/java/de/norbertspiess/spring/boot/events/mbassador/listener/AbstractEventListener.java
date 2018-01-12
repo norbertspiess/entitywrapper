@@ -1,18 +1,16 @@
 package de.norbertspiess.spring.boot.events.mbassador.listener;
 
-import de.norbertspiess.spring.boot.events.mbassador.event.AbstractEvent;
+import de.norbertspiess.spring.boot.events.mbassador.event.MyEvent;
 import net.engio.mbassy.bus.MBassador;
-import net.engio.mbassy.listener.Handler;
-import net.engio.mbassy.listener.Invoke;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-abstract class AbstractAsyncEventListener<EventType extends AbstractEvent> {
+abstract class AbstractEventListener<EventType extends MyEvent> {
 
     private MBassador eventBus;
 
-    AbstractAsyncEventListener(MBassador eventBus) {
+    AbstractEventListener(MBassador eventBus) {
         this.eventBus = eventBus;
     }
 
@@ -26,6 +24,13 @@ abstract class AbstractAsyncEventListener<EventType extends AbstractEvent> {
         eventBus.unsubscribe(this);
     }
 
-    @Handler(delivery = Invoke.Asynchronously)
-    public abstract void handleEvent(EventType event);
+    public void tryToHandleEvent(EventType event) {
+        try{
+            handleEvent(event);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    protected abstract void handleEvent(EventType event);
 }

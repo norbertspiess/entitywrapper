@@ -1,8 +1,6 @@
 package de.norbertspiess.spring.boot.events.mbassador;
 
-import de.norbertspiess.spring.boot.events.mbassador.event.AbstractEvent;
-import de.norbertspiess.spring.boot.events.mbassador.event.IntegerEvent;
-import de.norbertspiess.spring.boot.events.mbassador.event.StringEvent;
+import de.norbertspiess.spring.boot.events.mbassador.event.MyEvent;
 import lombok.extern.slf4j.Slf4j;
 import net.engio.mbassy.bus.MBassador;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,24 +11,24 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class EventPublisher {
 
-    private MBassador<AbstractEvent> eventBus;
+    private MBassador<MyEvent> eventBus;
 
     @Autowired
-    public EventPublisher(MBassador<AbstractEvent> eventBus) {
+    public EventPublisher(MBassador<MyEvent> eventBus) {
         this.eventBus = eventBus;
     }
 
     @Scheduled(fixedDelay = 5000)
     public void sendMessage() {
-        StringEvent event = new StringEvent("message");
-        log.info("posting {}", event);
-        eventBus.publishAsync(event);
+        MyEvent event = new MyEvent("message", "string");
+        log.info("posting string event {}", event);
+        eventBus.publish(event);
     }
 
     @Scheduled(fixedDelay = 7500)
     public void sendInteger() {
-        IntegerEvent event = new IntegerEvent(500);
-        log.info("posting {}", event);
-        eventBus.post(event).asynchronously();
+        MyEvent event = new MyEvent(500, "integer");
+        log.info("posting integer event {}", event);
+        eventBus.publish(event);
     }
 }
