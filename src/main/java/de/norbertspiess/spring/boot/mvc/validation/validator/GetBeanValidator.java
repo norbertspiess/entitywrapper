@@ -1,17 +1,17 @@
 package de.norbertspiess.spring.boot.mvc.validation.validator;
 
-import static java.util.Objects.isNull;
-
-import org.springframework.stereotype.Component;
+import de.norbertspiess.spring.boot.mvc.validation.model.GetBean;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import de.norbertspiess.spring.boot.mvc.validation.model.GetBean;
-import lombok.extern.slf4j.Slf4j;
+import javax.inject.Named;
+
+import static java.util.Objects.isNull;
 
 
 @Slf4j
-@Component
+@Named
 public class GetBeanValidator implements Validator {
 	@Override
 	public boolean supports(Class<?> clazz) {

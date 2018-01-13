@@ -1,23 +1,16 @@
 package de.norbertspiess.spring.boot.mvc.validation;
 
-import javax.validation.Valid;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.Validator;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import de.norbertspiess.spring.boot.mvc.validation.model.GetBean;
 import de.norbertspiess.spring.boot.mvc.validation.model.PostBean;
 import de.norbertspiess.spring.boot.mvc.validation.validator.GetBeanValidator;
 import de.norbertspiess.spring.boot.mvc.validation.validator.PostBeanValidator;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.validation.Validator;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
+
+import javax.inject.Inject;
+import javax.validation.Valid;
 
 
 @RestController
@@ -28,7 +21,7 @@ public class ValidatedController {
 
 	private Validator postBeanValidator;
 
-	@Autowired
+	@Inject
 	public ValidatedController(GetBeanValidator getBeanValidator, PostBeanValidator postBeanValidator) {
 		this.getBeanValidator = getBeanValidator;
 		this.postBeanValidator = postBeanValidator;

@@ -7,14 +7,15 @@ import net.engio.mbassy.listener.Filter;
 import net.engio.mbassy.listener.Handler;
 import net.engio.mbassy.listener.IMessageFilter;
 import net.engio.mbassy.subscription.SubscriptionContext;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-@Component
+import javax.inject.Inject;
+import javax.inject.Named;
+
+@Named
 @Slf4j
 public class IntegerEventListener extends AbstractEventListener<MyEvent> {
 
-    @Autowired
+    @Inject
     public IntegerEventListener(MBassador eventBus) {
         super(eventBus);
     }

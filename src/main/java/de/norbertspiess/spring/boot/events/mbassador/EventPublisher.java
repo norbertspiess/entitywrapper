@@ -3,17 +3,18 @@ package de.norbertspiess.spring.boot.events.mbassador;
 import de.norbertspiess.spring.boot.events.mbassador.event.MyEvent;
 import lombok.extern.slf4j.Slf4j;
 import net.engio.mbassy.bus.MBassador;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
 
-@Component
+import javax.inject.Inject;
+import javax.inject.Named;
+
+@Named
 @Slf4j
 public class EventPublisher {
 
     private MBassador<MyEvent> eventBus;
 
-    @Autowired
+    @Inject
     public EventPublisher(MBassador<MyEvent> eventBus) {
         this.eventBus = eventBus;
     }
