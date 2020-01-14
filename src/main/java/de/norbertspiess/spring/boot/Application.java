@@ -6,7 +6,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 
 @SpringBootApplication
-@EnableScheduling
+@EnableScheduling // enables @Scheduled
 public class Application {
 
 	public static void main(String[] args) {

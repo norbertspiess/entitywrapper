@@ -1,13 +1,21 @@
 package de.norbertspiess.spring.boot.events.spring;
 
-public class Event {
-    private String msg;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import org.springframework.core.ResolvableType;
+import org.springframework.core.ResolvableTypeProvider;
 
-    public Event(String msg) {
-        this.msg = msg;
-    }
+@RequiredArgsConstructor
+public class Event<T> implements ResolvableTypeProvider {
 
-    public String getMsg() {
-        return msg;
+    @Getter
+    private final T content;
+
+    /**
+     * Extracts the type of the content so it can be matched with listeners that expect only a certain type of the content
+     */
+    @Override
+    public ResolvableType getResolvableType() {
+        return ResolvableType.forClassWithGenerics(getClass(), ResolvableType.forInstance(content));
     }
 }
