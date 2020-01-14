@@ -22,14 +22,14 @@ public class EventPublisher {
     @Scheduled(fixedDelay = 5000)
     public void sendMessage() {
         MyEvent event = new MyEvent("message", "string");
-        log.info("posting string event {}", event);
+        log.info("MBASSADOR-EVENT: posting string event {}", event);
         eventBus.publish(event);
     }
 
     @Scheduled(fixedDelay = 7500)
     public void sendInteger() {
         MyEvent event = new MyEvent(500, "integer");
-        log.info("posting integer event {}", event);
+        log.info("MBASSADOR-EVENT: posting integer event {}", event);
         eventBus.publish(event);
     }
 }

@@ -28,7 +28,7 @@ public class StringEventListener extends AbstractEventListener<MyEvent> {
 
     @Override
     public void handleEvent(MyEvent event) {
-        log.info("got {}", event);
+        log.info("MBASSADOR-EVENT: got {}", event);
     }
 
     public static class EventFilter implements IMessageFilter<MyEvent> {
