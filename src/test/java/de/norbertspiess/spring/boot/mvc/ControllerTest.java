@@ -138,7 +138,7 @@ public abstract class ControllerTest {
                     request = MockMvcRequestBuilders.delete(path);
                     break;
                 default:
-                    throw new IllegalStateException("Unexpected value: " + method);
+                    throw new IllegalArgumentException("Unexpected value: " + method);
             }
 
             request
